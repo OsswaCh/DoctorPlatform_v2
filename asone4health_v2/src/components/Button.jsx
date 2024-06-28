@@ -7,7 +7,7 @@ function Button({color, text}) {
       'color_red': 'bg-color_red',
       }
     return (
-    <button className={`${colorVariants[color]} rounded-2xl w-32 h-8`}  >{text}</button>
+    <button className={`${colorVariants[color]} font-bold rounded-2xl w-32 h-8`}  >{text}</button>
   )
 }
 
