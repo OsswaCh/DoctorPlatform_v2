@@ -1,6 +1,7 @@
 import React from 'react'
 
-//TODO : 
+//TODO : make size flexible
+//TODO : make into a link not a button
 
 function Button({color, text}) {
     const colorVariants = {

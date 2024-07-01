@@ -7,6 +7,7 @@ module.exports = withMT({
     extend: {
       boxShadow: {
         "inner-custom": "#b2b2b2 0px 5px 5px 0px inset",
+        "inner-custom-2": "#198a8d 0px 5px 5px 0px inset",
       },
     },
     colors: {

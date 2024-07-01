@@ -8,12 +8,12 @@ function CircleLogo({size}) {
   const sizeVariants = {
     'small': 'w-16 h-16',
     'medium': 'w-96 h-96',
-    'medium-large': 'w-[40rem] h-[40rem]',
-    'large': 'w-[50rem] h-[50rem]',
+    'medium-large': 'w-[40vw] h-[40vw]',
+    'large': 'w-[45vw] h-[45vw]',
     }
 
     const sizeClass = sizeVariants[size] || sizeVariants.medium;  
-    
+ //TODO    
   return (
     <div className="w-screen h-screen">
       <div className={`${sizeClass } rounded-full border-solid border-[15px] border-color-main bg-color-white overflow-hidden flex items-center justify-center`}>

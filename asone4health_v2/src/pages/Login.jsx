@@ -28,7 +28,7 @@ function Login() {
 
           {/* Input Section */}
           <section className="flex flex-col w-full items-center relative">
-            <div className="mb-6 w-full flex flex-col items-center">
+            <div className="mb-6 w-full flex flex-col items-center ">
               <h2 className="text-center mb-2">Adresse Email</h2>
               <InputBox type="email" />
             </div>
@@ -47,14 +47,14 @@ function Login() {
           <section className="flex flex-col w-full items-center relative bottom-10 top-20 mt-24">
             <div className="flex flex-col w-full items-center justify-center mt-4">
               <h3 className="mb-5">Mot de passe oublié ?</h3>
-              <button className="w-full h-9 text-text-color-text border-solid border border-color-text rounded-xl mb-10">
+              <button className="w-80 px-4 py-2 text-text-color-text border-solid border border-color-text rounded-xl mb-10">
                 Nouveau mot de passe
               </button>
             </div>
 
             <div className="flex flex-col w-full items-center justify-center mt-4">
               <h3 className="mb-5">Nouveau chez AsOne4Health ?</h3>
-              <button className="w-full h-9 text-color-text border-solid border border-color-text rounded-xl">
+              <button className="w-80 px-4 py-2 text-color-text border-solid border border-color-text rounded-xl">
                 Créer votre compte AsOne4Health
               </button>
             </div>
@@ -64,7 +64,7 @@ function Login() {
 
       {/* CircleLogo Centered */}
       <div className="absolute inset-0 grid grid-cols-3 inset-y-20">
-        <div className="col-start-2 flex items-center justify-center ">
+        <div className="col-start-2 flex items-center justify-center  ">
           <CircleLogo size="large" />
         </div>
       </div>
