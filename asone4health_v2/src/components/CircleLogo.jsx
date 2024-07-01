@@ -8,6 +8,7 @@ function CircleLogo({size}) {
   const sizeVariants = {
     'small': 'w-16 h-16',
     'medium': 'w-96 h-96',
+    'medium-large': 'w-[40rem] h-[40rem]',
     'large': 'w-[50rem] h-[50rem]',
     }
 

@@ -1,5 +1,7 @@
 import React from 'react'
 
+//TODO : 
+
 function Button({color, text}) {
     const colorVariants = {
       'color-main': 'bg-color-main',

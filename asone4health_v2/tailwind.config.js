@@ -1,5 +1,7 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+const withMT = require("@material-tailwind/react/utils/withMT");
+
+module.exports = withMT({
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
@@ -9,13 +11,14 @@ module.exports = {
     },
     colors: {
       "color-main": "#90E3B2",
-      'color_client': "#8CCDCD",
+      'color-client': "#8CCDCD",
       "color-client-dark": "#21B8BC",
       "color-text": "#35384E",
       'color_red': "#E36C6D",
       "color-input-box": "#ececec",
       "color-input-box-shadow": "#aeaeae",
       "color-white": "#ffffff",
+      "color-border": "#343a40",
     },
 
 
@@ -29,4 +32,4 @@ module.exports = {
     },
   },
   plugins: [],
-};
+});
