@@ -4,6 +4,8 @@ import InputBox from "../components/InputBox";
 import Toggle from "../components/Toggle";
 import Button from "../components/Button";
 
+//TODO: center the doc type dic like the input div
+
 function AccountCreation() {
   return (
     <div className="w-screen h-screen grid grid-cols-5 relative">
@@ -12,13 +14,13 @@ function AccountCreation() {
 
       {/* input area */}
       <div className="col-span-4 bg-white flex justify-center">
-        <div className="p-8 w-full max-w-md">
+        <div className="p-8 w-full max-w-md col-start-2">
           <h1 className="text-center font-bold text-3xl text-color-client-dark mb-16 mt-10">
             Création de compte
           </h1>
 
           {/* Input Boxes */}
-          <section className="flex flex-col w-full items-center relative">
+          <section className="flex flex-col w-full items-center relative ">
             <div className="mb-6 w-full flex flex-col items-center">
               <h2 className="text-center mb-2">Nom</h2>
               <InputBox type="text" id="nom" />
@@ -49,86 +51,32 @@ function AccountCreation() {
           </section>
         </div>
 
-        <div className="flex flex-col items-center justify-center h-screen  ">
-          <div className=" min-w-[25vh] -mt-12 ">
 
-            <div className="flex flex-row justify-center mb-[1.1rem]">
-              <h2 className="text-center">Infectiogue</h2>
+        {/* specialty */}
+        <div className=" col-span-4 md:col-start-3 md:col-span-2 bg-white flex flex-col items-center justify-center h-screen">
+        <div className="min-w-[25vh] -mt-12">
+          {[
+            "Infectiogue",
+            "Oncologue",
+            "Traumatologue",
+            "MICI",
+            "Médecine Générale",
+            "Médecine de sport",
+            "Diététicien(ne)",
+            "Diabétologue",
+            "Endocrinologue",
+            "Cardiologue",
+            "Néphrologue",
+          ].map((specialty) => (
+            <div key={specialty} className="flex flex-row justify-center mb-[1.1rem]">
+              <h2 className="text-center">{specialty}</h2>
               <div className="ml-auto">
-                <Toggle id="Infectiogue" />
+                <Toggle id={specialty} />
               </div>
             </div>
+          ))}
+        </div>
 
-            <div className="flex flex-row justify-center mb-[1.1rem]">
-              <h2 className="text-center">Oncologue</h2>
-              <div className="ml-auto">
-                <Toggle id="Oncologue" />
-              </div>
-            </div>
-
-            <div className="flex flex-row justify-center mb-[1.1rem]">
-              <h2 className="text-center">Traumatologue</h2>
-              <div className="ml-auto">
-                <Toggle id="Traumatologue" />
-              </div>
-            </div>
-
-            <div className="flex flex-row justify-center mb-[1.1rem]">
-              <h2 className="text-center">MICI</h2>
-              <div className="ml-auto">
-                <Toggle id="MICI" />
-              </div>
-            </div>
-
-            <div className="flex flex-row justify-center mb-[1.1rem]">
-              <h2 className="text-center">Médecine Générale</h2>
-              <div className="ml-auto">
-                <Toggle id="Médecine Générale" />
-              </div>
-            </div>
-
-            <div className="flex flex-row justify-center mb-[1.1rem]">
-              <h2 className="text-center">Médecine de sport</h2>
-              <div className="ml-auto">
-                <Toggle id="Médecine de sport" />
-              </div>
-            </div>
-
-            <div className="flex flex-row justify-center mb-[1.1rem]">
-              <h2 className="text-center">Diététicien(ne)</h2>
-              <div className="ml-auto">
-                <Toggle id="Diététicien" />
-              </div>
-            </div>
-
-            <div className="flex flex-row justify-center mb-[1.1rem]">
-              <h2 className="text-center">Diabétologue</h2>
-              <div className="ml-auto">
-                <Toggle id="Diabétologue" />
-              </div>
-            </div>
-
-            <div className="flex flex-row justify-center mb-[1.1rem]">
-              <h2 className="text-center">Endocrinologue</h2>
-              <div className="ml-auto">
-                <Toggle id="Endocrinologue" />
-              </div>
-            </div>
-
-            <div className="flex flex-row justify-center mb-[1.1rem]">
-              <h2 className="text-center">Cardiologue</h2>
-              <div className="ml-auto">
-                <Toggle id="Cardiologue" />
-              </div>
-            </div>
-
-            <div className="flex flex-row justify-center mb-[1.1rem]">
-              <h2 className="text-center">Néphrologue</h2>
-              <div className="ml-auto">
-                <Toggle id="Néphrologue" />
-              </div>
-            </div>
-          </div>
 
           <div className="relative -bottom-40 -right-16 ">
             <Button color="color-main" text="Continuer" />

@@ -7,7 +7,7 @@ import TestPage from './pages/testPage'
 import PageNotFound from './pages/PageNotFound';
 
 
-//TODO : docarize the project
+//TODO : done: *started the reactivity og the home page
 
 function App() {
   
