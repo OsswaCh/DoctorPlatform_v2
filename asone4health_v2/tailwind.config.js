@@ -15,7 +15,7 @@ module.exports = withMT({
       'color-client': "#8CCDCD",
       "color-client-dark": "#21B8BC",
       "color-text": "#35384E",
-      'color_red': "#E36C6D",
+      'color-red': "#E36C6D",
       "color-input-box": "#ececec",
       "color-input-box-shadow": "#aeaeae",
       "color-white": "#ffffff",

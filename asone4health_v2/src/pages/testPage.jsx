@@ -1,13 +1,11 @@
 import React from 'react'
-import InputBox from '../components/InputBox';
+import SideBar from '../components/SideBar'
 
 function TestPage() {
   return (
-    <div className='bg-blue-gray-600 w-screen h-screen'>
-      <div className='flex flex-col justify-center items-center h-full'>
-        <InputBox />
-      </div>
-    </div>
+<div className="">
+  <SideBar />
+</div>
   )
 }
 

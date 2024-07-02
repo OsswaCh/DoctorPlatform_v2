@@ -2,15 +2,16 @@ import React from 'react'
 
 //TODO : make size flexible
 //TODO : make into a link not a button
+//TODO: text color struct 
 
-function Button({color, text}) {
+function Button({color, text, width='w-32', id, height='h-8', textColor='text-color-text'}) {
     const colorVariants = {
       'color-main': 'bg-color-main',
-      'color_client': 'bg-color_client',
-      'color_red': 'bg-color_red',
+      'color-client': 'bg-color-client',
+      'color-red': 'bg-color-red',
       }
     return (
-    <button className={`${colorVariants[color]} font-bold rounded-2xl w-32 h-8`}  >{text}</button>
+    <button className={`${colorVariants[color]} ${width} ${id} ${height} font-bold rounded-2xl `}  >{text}</button>
   )
 }
 
