@@ -27,7 +27,6 @@ function DocMainCard() {
         {/* collegues sections */}
 
         <div className="flex">
-          <Collegues name="Ramzi Ramzi" imageSrc={DefaultImage} />
           <Collegues name="Rayen Rayen" imageSrc={DefaultImage2} />
         </div>
         {/* title */}
