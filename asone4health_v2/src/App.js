@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import AccountCreation from './pages/AccountCreation';
 import TestPage from './pages/testPage'
 import PageNotFound from './pages/PageNotFound';
+import Dashboard from './pages/Dashboard';
 
 
 //TODO : done: *started the reactivity og the home page
@@ -26,6 +27,12 @@ const router = createBrowserRouter([
     path: '/test',
     element: <TestPage />,
   },
+  
+  {
+    path: 'dashboard',
+    element: <Dashboard />,
+  },
+
 ]);
   return (
     <div>

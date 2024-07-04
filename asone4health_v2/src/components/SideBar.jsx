@@ -3,11 +3,14 @@ import Logo2 from "../../src/assests/images/Logo_arriere_transparent.png";
 import Toggle from "./Toggle";
 import Button from "./Button";
 
+//TODO: link to the database instead of placeholders
+//TODO: bigger side bar fit the toggle
+
 function sideBar() {
   return (
-    <div className="w-[17rem] h-screen  border-r-4 border-color-main shadow-[0.5px_0px_25px_0px] shadow-color-main">
+    <div className="w-[17rem] h-full  border-r-4 border-color-main shadow-[0.5px_0px_25px_0px] shadow-color-main">
       {/* section 1 */}
-      <div className="flex flex-row items-center justify-between px-5 py-2 ">
+      <div className="flex flex-row items-center justify-between px-5  ">
         <img src={Logo2} alt="logo" className="w-16 h-16" />
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -103,12 +106,10 @@ function sideBar() {
 
       {/* section 3 */}
 
-      <div className="px-3 overflow-y-scroll  max-h-96 ">
-        <h1 className="text-2xl  text-color-client-dark font-bold">
-          Patients
-        </h1>
+      <div className="px-3 overflow-y-scroll  max-h-96 -mt-5 ">
+        <h1 className="text-2xl  text-color-client-dark font-bold">Patients</h1>
 
-{/* TODO : make the button  text coloe dynamic */}
+        {/* TODO : make the button  text coloe dynamic */}
         <div className="mt-3">
           {["Infectiogue", "Oncologue", "Traumatologue", "MICI"].map(
             (active_patient) => (
@@ -118,8 +119,8 @@ function sideBar() {
               >
                 <div className="ml-auto my-1">
                   <Button
-                  textColor="white"
-                  height="h-6"
+                    textColor="white"
+                    height="h-6"
                     color="color-client"
                     text={active_patient}
                     width="w-[14rem]"
@@ -131,10 +132,50 @@ function sideBar() {
           )}
         </div>
 
-          <button className="border border-color-client-dark w-[14rem] h-8 font-bold rounded-2xl mt-2 text-color-client-dark"> AJOUTER UN PATIENT </button>
-
+        <button className="border border-color-client-dark w-[14rem] h-8 font-bold rounded-2xl mt-3 text-color-client-dark">
+          {" "}
+          AJOUTER UN PATIENT{" "}
+        </button>
       </div>
       <hr className="bg-color-main h-0.5 w-[15rem] my-8 rounded-md mx-auto border-none" />
+
+      {/* section 4 */}
+
+      <div className="px-3 overflow-y-scroll  max-h-96 -mt-5 ">
+        <h1 className="text-2xl  text-color-client-dark font-bold">Médecins</h1>
+
+        <div className="mt-3">
+          {["Infectiogue", "Oncologue", "Traumatologue", "MICI"].map(
+            (active_doctor) => (
+              <div
+                key={active_doctor}
+                className="flex flex-row justify-center mb-2"
+              >
+                <div className="ml-auto my-1">
+                  <Button
+                    textColor="white"
+                    height="h-6"
+                    color="color-main"
+                    text={active_doctor}
+                    width="w-[14rem]"
+                    id={active_doctor}
+                  />{" "}
+                </div>
+              </div>
+            )
+          )}
+        </div>
+
+        <button className="border border-color-client-dark w-[14rem] h-8 font-bold rounded-2xl mt-3 text-color-client-dark ">
+          {" "}
+          AJOUTER UN MEDECIN{" "}
+        </button>
+
+        <button className="border border-color-client-dark w-[14rem] h-8 font-bold rounded-2xl mt-2 text-color-client-dark mb-10">
+          {" "}
+          COLABORATION{" "}
+        </button>
+      </div>
     </div>
   );
 }
