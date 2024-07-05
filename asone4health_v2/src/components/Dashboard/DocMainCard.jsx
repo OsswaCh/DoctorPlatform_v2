@@ -1,9 +1,9 @@
 import React from "react";
 import Collegues from "./Collegues";
-import DefaultImage from "../assests/images/defaultAvatar.jpg";
-import DefaultImage2 from "../assests/images/defaultAvatar2.jpeg";
+import DefaultImage from "../../assests/images/defaultAvatar.jpg";
+import DefaultImage2 from "../../assests/images/defaultAvatar2.jpeg";
 import DoctorDetails from "./DoctorDetails";
-import Calendar from "./Calendar/Calendar";
+import Calendar from "../Calendar/Calendar";
 
 //TODO: set a max number of collegues
 //TODO: amp the collegues from the DB

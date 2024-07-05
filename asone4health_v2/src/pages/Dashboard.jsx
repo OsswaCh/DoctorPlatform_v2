@@ -1,6 +1,6 @@
 import React from 'react'
 import SideBar from "../components/SideBar";
-import DocMainCard from "../components/DocMainCard";
+import DocMainCard from "../components/Dashboard/DocMainCard";
 
 function Dashboard() {
   return (

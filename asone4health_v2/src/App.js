@@ -9,6 +9,7 @@ import Dashboard from './pages/Dashboard';
 
 
 //TODO : done: *started the reactivity og the home page
+//TODO: make each type of button its own component depending on the functionality
 
 function App() {
   
