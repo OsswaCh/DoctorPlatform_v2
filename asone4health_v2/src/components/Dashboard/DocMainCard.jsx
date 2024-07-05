@@ -5,6 +5,7 @@ import DefaultImage2 from "../../assests/images/defaultAvatar2.jpeg";
 import DoctorDetails from "./DoctorDetails";
 import Calendar from "../Calendar/Calendar";
 import MedicalInformation from "../MedicalInformation/MedicalInformation";
+import Suivis from "../suivis/Suivis";
 
 //TODO: set a max number of collegues
 //TODO: amp the collegues from the DB
@@ -48,6 +49,7 @@ function DocMainCard() {
         
         <div className=" row-span-3 px-3 pt-2  gap-2 flex">
         <div className="w-1/3"><MedicalInformation  /></div>
+        <div className="w-2/3"><Suivis /> </div>
         
         
         </div>
