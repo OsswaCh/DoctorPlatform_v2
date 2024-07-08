@@ -5,6 +5,7 @@ import Button from "./Button";
 
 //TODO: link to the database instead of placeholders
 //TODO: bigger side bar fit the toggle
+//TODO: make the sidebar fit the entire screen no matter how long it is
 
 function sideBar() {
   return (

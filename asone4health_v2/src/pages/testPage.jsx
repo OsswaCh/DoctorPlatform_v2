@@ -1,16 +1,12 @@
 import React from "react";
-import DefaultImage from "../../src/assests/images/defaultAvatar.jpg";
-import Collegues from "../components/Dashboard/Collegues";
-import CustumizedCalendar from "../components/Calendar/CustumizedCalendar";
-import Supprimer from "../components/buttons/SupprimerCal";
-import MedicalInformation from "../components/MedicalInformation/MedicalInformation";
-import Suivis from "../components/suivis/Suivis";
+
+import NumberInputBox from "../components/Inputs/NumberInputBox";
 
 function TestPage() {
   return (
     <div className=" m-10">
 
-    <Suivis />
+    <NumberInputBox />
 
     </div>
   );

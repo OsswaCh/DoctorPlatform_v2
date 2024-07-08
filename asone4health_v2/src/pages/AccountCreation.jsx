@@ -1,6 +1,6 @@
 import React from "react";
 import CircleLogo from "../components/CircleLogo";
-import InputBox from "../components/InputBox";
+import InputBox from "../components/Inputs/InputBox";
 import Toggle from "../components/Toggle";
 import Button from "../components/Button";
 

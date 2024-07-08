@@ -1,7 +1,7 @@
 // rfce
 import React from "react";
 import "../App.css";
-import InputBox from "../components/InputBox";
+import InputBox from "../components/Inputs/InputBox";
 import Button from "../components/Button";
 import CircleLogo from "../components/CircleLogo";
 

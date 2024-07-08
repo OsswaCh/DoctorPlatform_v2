@@ -4,11 +4,12 @@ import DefaultImage from "../../assests/images/defaultAvatar.jpg";
 import DefaultImage2 from "../../assests/images/defaultAvatar2.jpeg";
 import DoctorDetails from "./DoctorDetails";
 import Calendar from "../Calendar/Calendar";
-import MedicalInformation from "../MedicalInformation/MedicalInformation";
+import MedicalInformation from "./MedicalInformation";
 import Suivis from "../suivis/Suivis";
 
 //TODO: set a max number of collegues
 //TODO: amp the collegues from the DB
+//TODO: change the 1/3 in the upper row to be fixed
 
 const doctorData = {
   lastName: "Doe",
