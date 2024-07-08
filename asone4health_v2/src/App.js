@@ -11,6 +11,7 @@ import Dashboard from './pages/Dashboard';
 //TODO : done: *started the reactivity og the home page
 //TODO: make each type of button its own component depending on the functionality
 //TODO: change the paragraph font to ROBOTO
+//TODO: put the icons in a seperate file and call them?
 
 function App() {
   

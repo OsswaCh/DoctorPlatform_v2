@@ -41,20 +41,17 @@ function DocMainCard() {
       </div>
 
       {/* body */}
-      <div className="flex-1 border border-color-main rounded-b-3xl grid grid-rows-4">
-        <div className="row-span-1 px-3 pt-2 gap-2 flex ">
-        <DoctorDetails doctor={doctorData} />
-        <Calendar />
-        
-        </div>
-        
-        <div className=" row-span-3 px-3 pt-2  gap-2 flex">
-        <div className="w-1/3"><MedicalInformation  /></div>
-        <div className="w-2/3"><Suivis /> </div>
-        
-        
-        </div>
-      </div>
+      <div className="flex flex-col h-full border border-color-main rounded-b-3xl">
+  <div className=" px-3 pt-2 flex gap-2">
+    <DoctorDetails doctor={doctorData} />
+    <Calendar />
+  </div>
+  
+  <div className="flex-1 px-3 pt-2 flex gap-2 overflow-auto">
+    <div className="w-1/3"><MedicalInformation /></div>
+    <div className="w-2/3"><Suivis /></div>
+  </div>
+</div>
     </div>
   );
 }

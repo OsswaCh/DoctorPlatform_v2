@@ -5,6 +5,8 @@ import {
   AccordionBody,
 } from "@material-tailwind/react";
 import PlanDeTraitement from "./PlanDeTraitement/PlanDeTraitement";
+import IoT from "./IoT/IoT";
+import Consultations from "./consultations/Consultations";
 
 function Icon({ id, open }) {
   return (
@@ -58,13 +60,10 @@ function AccordionCustomIcon() {
             onClick={() => handleOpen(2)}
             className="text-color-client-dark font-Montserrat hover:text-color-client"
           >
-            Suivi des conditions médicale (IoT)
+            Consultation du (ici la date du jour)
           </AccordionHeader>
           <AccordionBody className="font-Montserrat">
-            We&apos;re not always in the position that we want to be at.
-            We&apos;re constantly growing. We&apos;re constantly making
-            mistakes. We&apos;re constantly trying to express ourselves and
-            actualize our dreams.
+            <IoT />
           </AccordionBody>
         </Accordion>
       </div>
@@ -81,10 +80,7 @@ function AccordionCustomIcon() {
             Consulatation(s)
           </AccordionHeader>
           <AccordionBody className="font-Montserrat">
-            We&apos;re not always in the position that we want to be at.
-            We&apos;re constantly growing. We&apos;re constantly making
-            mistakes. We&apos;re constantly trying to express ourselves and
-            actualize our dreams.
+            <Consultations />
           </AccordionBody>
         </Accordion>
       </div>

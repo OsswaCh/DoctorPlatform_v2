@@ -9,7 +9,7 @@ import Button from "./Button";
 
 function sideBar() {
   return (
-    <div className="w-[17rem] h-full  border-r-4 border-color-main shadow-[0.5px_0px_25px_0px] shadow-color-main">
+    <div className="w-[17rem]   border-r-4 border-color-main shadow-[0.5px_0px_25px_0px] shadow-color-main">
       {/* section 1 */}
       <div className="flex flex-row items-center justify-between px-5  ">
         <img src={Logo2} alt="logo" className="w-16 h-16" />

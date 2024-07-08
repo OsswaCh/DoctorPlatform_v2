@@ -11,14 +11,8 @@ function Button({color, text, width='w-32', id, height='h-8', textColor='text-co
       'color-red': 'bg-color-red',
     }
 
-    const textColorVariants = {
-      'text-color-main': 'text-color-main',
-      'text-color-client': 'text-color-client',
-      'text-color-red': 'text-color-red',
-    }
-
     return (
-    <button className={`${colorVariants[color]} ${width} ${id} ${height} font-bold rounded-2xl `}  >{text}</button>
+    <button className={`${colorVariants[color]} ${width} ${id} ${height} ${textColor} font-bold rounded-2xl `}  >{text}</button>
   )
 }
 
