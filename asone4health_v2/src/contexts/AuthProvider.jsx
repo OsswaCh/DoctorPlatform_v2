@@ -160,7 +160,7 @@ const AuthProvider = ({ children }) => {
       );
       const emailCheckResult = await emailCheckResponse.json();
       console.log("Email check result:", emailCheckResult);
-      return emailCheckResult.details === "Email exists";
+      return emailCheckResult.detail === "Email already exists";
     } catch (error) {
       console.error("Error checking email availability:", error);
       return false;
