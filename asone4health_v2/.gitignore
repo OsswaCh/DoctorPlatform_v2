@@ -5,6 +5,7 @@
 /.pnp
 .pnp.js
 node_modules
+.VSCodeCounter/2024-07-09_11-36-35
 
 # testing
 /coverage
