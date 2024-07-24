@@ -24,7 +24,7 @@ function Calendar() {
           supprimé.
         </p>
 
-        <div className="flex justify-evenly mt-10 ">
+        <div className="flex justify-evenly mt-10 mb-5 ">
           <Supprimer id="calendar_supprime"/>
           <Valider id="calendar_valide"/>
 

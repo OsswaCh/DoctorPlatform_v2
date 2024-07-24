@@ -1,47 +1,52 @@
-import React from 'react';
+import React, {useState} from "react";
 
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Login from './pages/Login';
-import AccountCreation from './pages/AccountCreation';
-import TestPage from './pages/testPage'
-import PageNotFound from './pages/PageNotFound';
-import Dashboard from './pages/Dashboard';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
+
+//import Login, {loginAction} from "./pages/Login";
+import Login from "./pages/Login";
+import AccountCreation from "./pages/AccountCreation";
+import TestPage from "./pages/testPage";
+import PageNotFound from "./pages/PageNotFound";
+import Dashboard from "./pages/Dashboard";
+import ProtectedRoute from "./contexts/ProtectedRoute";
+import   AuthProvider  from "./contexts/AuthProvider";
 
 //TODO : done: *started the reactivity og the home page
 //TODO: make each type of button its own component depending on the functionality
 //TODO: change the paragraph font to ROBOTO
 //TODO: put the icons in a seperate file and call them?
+//TODO: fix the protected routes
 
-function App() {
-  
+
 // Define the routes
+
 const router = createBrowserRouter([
   {
-    path: '/',
-    element: <Login />,
+    path: "/",
+    element: <AuthProvider><Login /></AuthProvider>,
     errorElement: <PageNotFound />,
   },
   {
-    path: '/creation-de-compte',
-    element: <AccountCreation />,
+    path: "/dashboard",
+    element: <AuthProvider><ProtectedRoute><Dashboard /></ProtectedRoute></AuthProvider>,
   },
   {
-    path: '/test',
-    element: <TestPage />,
+    path: "/creation-de-compte",
+    element: <AuthProvider><AccountCreation /></AuthProvider>,
   },
-  
   {
-    path: 'dashboard',
-    element: <Dashboard />,
+    path: "/test",
+    element: <AuthProvider><TestPage /></AuthProvider>,
   },
-
 ]);
+
+
+function App() {
+
   return (
-    <div>
-      {/* deffer the entry point of the app to react router define above */}
+    
       <RouterProvider router={router} />
-    </div>
   );
 }
 

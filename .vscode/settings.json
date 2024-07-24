@@ -1,2 +1,4 @@
 {
+    "vim.easymotion": true,
+    "vim.statusBarColors.replace": ""
 }

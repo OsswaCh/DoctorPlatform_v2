@@ -46,7 +46,7 @@ function PlanDeTraitement() {
               "Quality of Life",
               "Evaluation, prise en charge pour l'Obésité",
             ].map((questionnaire) => (
-              <div className="mb-3">
+              <div key={questionnaire} className="mb-3">
                 <Questionnaire text={questionnaire} key={questionnaire} />
               </div>
             ))}
@@ -64,7 +64,7 @@ function PlanDeTraitement() {
         <div className="mt-5 mx-4">
           {["Nombre de pas", "Faire du vélo", "Rythme cardiaque"].map(
             (indicateur) => (
-              <div className="flex flex-row items-center mb-3 font-medium">
+              <div key={indicateur} className="flex flex-row items-center mb-3 font-medium">
                 <h2>{indicateur}</h2>
 
                 <div className="flex flex-row ml-auto">
@@ -88,7 +88,7 @@ function PlanDeTraitement() {
         <div className="mt-5 mx-4">
           {["Céréales", "Fruits", "Viandes", "Produits laitier", "Poisson"].map(
             (indicateur) => (
-              <div className="flex flex-row items-center mb-3 font-medium">
+              <div key={indicateur} className="flex flex-row items-center mb-3 font-medium">
                 <h2>{indicateur}</h2>
 
                 <div className="flex flex-row ml-auto">
