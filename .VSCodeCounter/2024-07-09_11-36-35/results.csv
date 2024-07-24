@@ -1,0 +1,47 @@
+"filename", "language", "JavaScript", "JSON", "Markdown", "XML", "JavaScript JSX", "PostCSS", "HTML", "comment", "blank", "total"
+"d:\asone4health_v2\asone4health_v2\README.md", "Markdown", 0, 0, 6, 0, 0, 0, 0, 0, 2, 8
+"d:\asone4health_v2\asone4health_v2\UI_problem_list.md", "Markdown", 0, 0, 5, 0, 0, 0, 0, 0, 2, 7
+"d:\asone4health_v2\asone4health_v2\package-lock.json", "JSON", 0, 20284, 0, 0, 0, 0, 0, 0, 1, 20285
+"d:\asone4health_v2\asone4health_v2\package.json", "JSON", 0, 50, 0, 0, 0, 0, 0, 0, 1, 51
+"d:\asone4health_v2\asone4health_v2\public\index.html", "HTML", 0, 0, 0, 0, 0, 0, 20, 23, 1, 44
+"d:\asone4health_v2\asone4health_v2\public\manifest.json", "JSON", 0, 25, 0, 0, 0, 0, 0, 0, 1, 26
+"d:\asone4health_v2\asone4health_v2\src\App.css", "PostCSS", 0, 0, 0, 0, 0, 5, 0, 0, 3, 8
+"d:\asone4health_v2\asone4health_v2\src\App.js", "JavaScript", 35, 0, 0, 0, 0, 0, 0, 5, 8, 48
+"d:\asone4health_v2\asone4health_v2\src\App.test.js", "JavaScript", 7, 0, 0, 0, 0, 0, 0, 0, 2, 9
+"d:\asone4health_v2\asone4health_v2\src\components\Button.jsx", "JavaScript JSX", 0, 0, 0, 0, 12, 0, 0, 3, 6, 21
+"d:\asone4health_v2\asone4health_v2\src\components\Calendar\Calendar.css", "PostCSS", 0, 0, 0, 0, 0, 85, 0, 8, 9, 102
+"d:\asone4health_v2\asone4health_v2\src\components\Calendar\Calendar.jsx", "JavaScript JSX", 0, 0, 0, 0, 31, 0, 0, 0, 7, 38
+"d:\asone4health_v2\asone4health_v2\src\components\Calendar\CustumizedCalendar.jsx", "JavaScript JSX", 0, 0, 0, 0, 13, 0, 0, 0, 6, 19
+"d:\asone4health_v2\asone4health_v2\src\components\CircleLogo.jsx", "JavaScript JSX", 0, 0, 0, 0, 19, 0, 0, 3, 5, 27
+"d:\asone4health_v2\asone4health_v2\src\components\Dashboard\Collegues.jsx", "JavaScript JSX", 0, 0, 0, 0, 46, 0, 0, 10, 9, 65
+"d:\asone4health_v2\asone4health_v2\src\components\Dashboard\DocMainCard.jsx", "JavaScript JSX", 0, 0, 0, 0, 43, 0, 0, 7, 10, 60
+"d:\asone4health_v2\asone4health_v2\src\components\Dashboard\DoctorDetails.jsx", "JavaScript JSX", 0, 0, 0, 0, 24, 0, 0, 3, 5, 32
+"d:\asone4health_v2\asone4health_v2\src\components\Dashboard\MedicalInformation.jsx", "JavaScript JSX", 0, 0, 0, 0, 121, 0, 0, 1, 11, 133
+"d:\asone4health_v2\asone4health_v2\src\components\Dashboard\styling_instructions.md", "Markdown", 0, 0, 16, 0, 0, 0, 0, 0, 13, 29
+"d:\asone4health_v2\asone4health_v2\src\components\Inputs\InputBox.jsx", "JavaScript JSX", 0, 0, 0, 0, 16, 0, 0, 0, 3, 19
+"d:\asone4health_v2\asone4health_v2\src\components\Inputs\NumberInputBox.jsx", "JavaScript JSX", 0, 0, 0, 0, 53, 0, 0, 2, 7, 62
+"d:\asone4health_v2\asone4health_v2\src\components\SideBar.jsx", "JavaScript JSX", 0, 0, 0, 0, 159, 0, 0, 9, 17, 185
+"d:\asone4health_v2\asone4health_v2\src\components\Toggle.jsx", "JavaScript JSX", 0, 0, 0, 0, 18, 0, 0, 0, 2, 20
+"d:\asone4health_v2\asone4health_v2\src\components\buttons\Activate.jsx", "JavaScript JSX", 0, 0, 0, 0, 42, 0, 0, 0, 5, 47
+"d:\asone4health_v2\asone4health_v2\src\components\buttons\SupprimerCal.jsx", "JavaScript JSX", 0, 0, 0, 0, 7, 0, 0, 2, 4, 13
+"d:\asone4health_v2\asone4health_v2\src\components\buttons\ValiderCal.jsx", "JavaScript JSX", 0, 0, 0, 0, 7, 0, 0, 2, 4, 13
+"d:\asone4health_v2\asone4health_v2\src\components\suivis\IoT\IoT.jsx", "JavaScript JSX", 0, 0, 0, 0, 182, 0, 0, 4, 11, 197
+"d:\asone4health_v2\asone4health_v2\src\components\suivis\PlanDeTraitement\PlanDeTraitement.jsx", "JavaScript JSX", 0, 0, 0, 0, 94, 0, 0, 4, 13, 111
+"d:\asone4health_v2\asone4health_v2\src\components\suivis\PlanDeTraitement\Questionnaire.jsx", "JavaScript JSX", 0, 0, 0, 0, 14, 0, 0, 1, 6, 21
+"d:\asone4health_v2\asone4health_v2\src\components\suivis\Suivis.jsx", "JavaScript JSX", 0, 0, 0, 0, 79, 0, 0, 3, 10, 92
+"d:\asone4health_v2\asone4health_v2\src\components\suivis\consultations\Consultations.jsx", "JavaScript JSX", 0, 0, 0, 0, 94, 0, 0, 0, 14, 108
+"d:\asone4health_v2\asone4health_v2\src\index.css", "PostCSS", 0, 0, 0, 0, 0, 14, 0, 0, 5, 19
+"d:\asone4health_v2\asone4health_v2\src\index.js", "JavaScript", 15, 0, 0, 0, 0, 0, 0, 3, 3, 21
+"d:\asone4health_v2\asone4health_v2\src\logo.svg", "XML", 0, 0, 0, 1, 0, 0, 0, 0, 0, 1
+"d:\asone4health_v2\asone4health_v2\src\pages\AccountCreation.jsx", "JavaScript JSX", 0, 0, 0, 0, 73, 0, 0, 6, 17, 96
+"d:\asone4health_v2\asone4health_v2\src\pages\Dashboard.jsx", "JavaScript JSX", 0, 0, 0, 0, 14, 0, 0, 0, 2, 16
+"d:\asone4health_v2\asone4health_v2\src\pages\Login.jsx", "JavaScript JSX", 0, 0, 0, 0, 51, 0, 0, 6, 13, 70
+"d:\asone4health_v2\asone4health_v2\src\pages\PageNotFound.jsx", "JavaScript JSX", 0, 0, 0, 0, 14, 0, 0, 0, 2, 16
+"d:\asone4health_v2\asone4health_v2\src\pages\testPage.jsx", "JavaScript JSX", 0, 0, 0, 0, 10, 0, 0, 0, 6, 16
+"d:\asone4health_v2\asone4health_v2\src\reportWebVitals.js", "JavaScript", 12, 0, 0, 0, 0, 0, 0, 0, 2, 14
+"d:\asone4health_v2\asone4health_v2\src\setupTests.js", "JavaScript", 1, 0, 0, 0, 0, 0, 0, 4, 1, 6
+"d:\asone4health_v2\asone4health_v2\tailwind.config.js", "JavaScript", 32, 0, 0, 0, 0, 0, 0, 1, 4, 37
+"d:\asone4health_v2\package-lock.json", "JSON", 0, 1914, 0, 0, 0, 0, 0, 0, 1, 1915
+"d:\asone4health_v2\package.json", "JSON", 0, 12, 0, 0, 0, 0, 0, 0, 1, 13
+"d:\asone4health_v2\tailwind.config.js", "JavaScript", 7, 0, 0, 0, 0, 0, 0, 1, 2, 10
+"Total", "-", 109, 22285, 27, 1, 1236, 104, 20, 111, 257, 24150
