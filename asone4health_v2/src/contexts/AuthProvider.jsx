@@ -1,129 +1,3 @@
-// import React, {useState} from 'react'
-
-// export const AuthContext = React.createContext(null);
-
-// const initialState = {
-//     isLoggedIn: false,
-//     isLoginPending: false,
-//     leginError: null
-// }
-
-// export const AuthProvider = props => {
-
-//     const [state, setState] = useState(initialState);
-
-//     const setLoginPending =( isLoginPending) => {
-//         setState({ isLoginPending});
-//     }
-//     const setLoginError = (loginError) => {
-//         setState({ loginError});
-//     }
-//     const setLoginSuccess = (isLoggedIn) => {
-//         setState({ isLoggedIn});
-//     }
-
-//     const login = (email, password) => {
-
-//         setLoginPending(true);
-//         setLoginError(null);
-//         setLoginSuccess(false);
-
-//         fetchLogin (email , password, error =>{
-
-//             setLoginPending(false);
-
-//             if(!error){
-//                 setLoginSuccess(true);
-//             }
-//             else {
-//                 setLoginError(error);
-//             }
-
-//         })
-//     }
-
-//     const logout = () => {
-//         setLoginSuccess(false);
-//         setLoginSuccess(false);
-//         setLoginError(null);
-//     }
-
-//     return (
-//         <AuthContext.Provider
-//             value={{
-//                 state,
-//                 login,
-//                 logout
-//             }}>
-//                 {props.children}
-//             </AuthContext.Provider>
-//     )}
-
-//     //trial login
-//     const fetchLogin = (email, password, callback) => {
-//         setTimeout(() => {
-//             if (email === 'email@email' || password === 'svsdvd') {
-//                 console.log(email, password);
-//                 callback(null);
-//             } else {
-//                 console.log(email);
-//                 return callback(new Error('Invalid email and password'));
-//             }},1000);
-
-// // }
-
-// import { useContext, createContext, useState } from "react";
-// import { Navigate } from "react-router-dom";
-
-// const AuthContext = createContext();
-
-// const AuthProvider = ({ children }) => {
-//   const [user, setUser] = useState(null);
-//   const [token, setToken] = useState(localStorage.getItem("site") || "");
-//   //const navigate = useNavigate();
-//   const loginAction = async (data) => {
-//     try {
-//       const response = await fetch("https://api.asone4health.fr/patient/login",
-//         {
-//         method: "POST",
-//         headers: {
-//           "Content-Type": "application/json",
-//         },
-//         body: JSON.stringify(data),
-//       });
-//       const res = await response.json();
-//       if (res.data) {
-//         setUser(res.data.user);
-//         setToken(res.token);
-//         localStorage.setItem("site", res.token);
-//         <Navigate to="/dashboard" />;
-//         return;
-//       }
-//       throw new Error(res.message);
-//     } catch (error) {
-//       console.log(error);
-//     }
-//     console.log(data);
-//   };
-
-//   const logOut = () => {
-//     setUser(null);
-//     setToken("");
-//     localStorage.removeItem("site");
-//     <Navigate to="/" />;
-//   };
-
-//   return (
-//     <AuthContext.Provider value={{ token, user, loginAction, logOut }}>
-//       {children}
-//     </AuthContext.Provider>
-//   );
-// };
-
-// export default AuthProvider;
-// export const useAuth = () => {
-//   return useContext(AuthContext);
-// };
 import React, { createContext, useState, useContext, useEffect } from "react";
 
 const AuthContext = createContext();
@@ -131,6 +5,8 @@ const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(sessionStorage.getItem("site") || "");
+
+  //TODO: switch from relying on session storage to information from the context i.e. make the user information available in the context
 
   useEffect(() => {
     if (token) {
@@ -238,6 +114,18 @@ const AuthProvider = ({ children }) => {
     }
   };
 
+    const updateUserInfo = (doctorInfo) => {
+    setUser(prevUser => ({
+      ...prevUser,
+      ...doctorInfo
+    }));
+
+    // Update session storage
+    Object.entries(doctorInfo).forEach(([key, value]) => {
+      sessionStorage.setItem(key, typeof value === 'object' ? JSON.stringify(value) : value);
+    });
+  };
+  
   const logOut = () => {
     setUser(null);
     setToken("");

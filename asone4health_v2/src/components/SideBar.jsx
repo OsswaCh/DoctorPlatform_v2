@@ -1,5 +1,5 @@
 import React from "react";
-import {useAuth} from "../contexts/AuthProvider";
+import { useAuth } from "../contexts/AuthProvider";
 
 import Logo2 from "../../src/assests/images/Logo_arriere_transparent.png";
 import Toggle from "./Toggle";
@@ -12,19 +12,16 @@ import SearchSVG from "./SVGs/SearchSVG";
 //TODO: link to the database instead of placeholders
 //TODO: bigger side bar fit the toggle
 //TODO: make the sidebar fit the entire screen no matter how long it is
+//TODO: make the sidebar FIXED  and the main content scrollable
 
 function SideBar() {
-
-
-
   return (
-    <div className="w-[17rem]   border-r-4 border-color-main shadow-[0.5px_0px_25px_0px] shadow-color-main">
+    <div className=" w-[17rem]   border-r-4 border-color-main shadow-[0.5px_0px_25px_0px] shadow-color-main">
       {/* section 1 */}
       <div className="flex flex-row items-center justify-between px-5  ">
         <img src={Logo2} alt="logo" className="w-16 h-16" />
-       <ProfileSVG /> 
-      
-      <LogOutSVG />
+        <ProfileSVG />
+        <LogOutSVG />
       </div>
 
       {/* section 2 */}
@@ -32,7 +29,7 @@ function SideBar() {
         <form className="max-w-md mx-auto">
           <div className="relative">
             <div className="absolute inset-y-0 right-3 flex items-center ps-3 pointer-events-none">
-            <SearchSVG />
+              <SearchSVG />
             </div>
             <input
               type="search"

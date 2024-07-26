@@ -5,7 +5,7 @@ import DocMainCard from "../components/Dashboard/DocMainCard";
 function Dashboard() {
   return (
     <div className=" flex flex-cols">
-      <SideBar />
+      <SideBar  />
       <div className="w-full m-10">
         <DocMainCard />
       </div>

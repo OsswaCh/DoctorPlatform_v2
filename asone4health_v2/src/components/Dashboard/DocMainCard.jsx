@@ -1,6 +1,7 @@
 import React from "react";
+import { useAuth } from "../../contexts/AuthProvider";
+
 import Collegues from "./Collegues";
-import DefaultImage from "../../assests/images/defaultAvatar.jpg";
 import DefaultImage2 from "../../assests/images/defaultAvatar2.jpeg";
 import DoctorDetails from "./DoctorDetails";
 import Calendar from "../Calendar/Calendar";
@@ -11,18 +12,11 @@ import Suivis from "../suivis/Suivis";
 //TODO: amp the collegues from the DB
 //TODO: change the 1/3 in the upper row to be fixed
 
-const doctorData = {
-  lastName: "Doe",
-  firstName: "John",
-  email: "john.doe@example.com",
-  address: "123 Main St, City",
-  phone: "123-456-7890",
-  socialSecurityNumber: "123-45-6789"
-};
-
 function DocMainCard() {
 
-  
+const { user } = useAuth();
+const {nom, prenom, email, address, phone, socialSecurityNumber} = user;
+
   return (
     <div className="h-full w-full rounded-3xl flex flex-col min-w-[60em]">
       {/* header */}
@@ -35,7 +29,7 @@ function DocMainCard() {
         {/* title */}
         <div className="absolute inset-x-0 flex items-center justify-center ">
           <h1 className="text-2xl font-bold text-color-white ">
-            Dr. Eya Gammoudi
+           {user.nom}
           </h1>
         </div>
       </div>
@@ -43,7 +37,8 @@ function DocMainCard() {
       {/* body */}
       <div className="flex flex-col h-full border border-color-main rounded-b-3xl">
   <div className=" px-3 pt-2 flex gap-2">
-    <DoctorDetails doctor={doctorData} />
+    <DoctorDetails nom={nom} prenom={prenom} email={email} address={address} phone={phone} socialSecurityNumber={socialSecurityNumber}  />
+    
     <Calendar />
   </div>
   
