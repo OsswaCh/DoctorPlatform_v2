@@ -18,7 +18,7 @@ const { user } = useAuth();
 const {nom, prenom, email, address, phone, socialSecurityNumber} = user;
 
   return (
-    <div className="h-full w-full rounded-3xl flex flex-col min-w-[60em]">
+    <div className="relative h-full w-full rounded-3xl flex flex-col min-w-[60em]">
       {/* header */}
       <div className="w-full h-16 bg-color-client-dark rounded-t-3xl flex px-5 items-center relative">
         {/* collegues sections */}
