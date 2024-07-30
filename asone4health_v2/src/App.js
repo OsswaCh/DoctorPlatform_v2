@@ -1,7 +1,6 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
 
 //import Login, {loginAction} from "./pages/Login";
 import Login from "./pages/Login";
@@ -10,7 +9,8 @@ import TestPage from "./pages/testPage";
 import PageNotFound from "./pages/PageNotFound";
 import Dashboard from "./pages/Dashboard";
 import ProtectedRoute from "./contexts/ProtectedRoute";
-import   AuthProvider  from "./contexts/AuthProvider";
+import BaseRoute from "./contexts/ProtectedRoute";
+import AuthProvider from "./contexts/AuthProvider";
 
 //TODO : done: *started the reactivity og the home page
 //TODO: make each type of button its own component depending on the functionality
@@ -18,36 +18,50 @@ import   AuthProvider  from "./contexts/AuthProvider";
 //TODO: put the icons in a seperate file and call them?
 //TODO: fix the protected routes
 
-
 // Define the routes
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <AuthProvider><Login /></AuthProvider>,
+    element: (
+      <AuthProvider>
+        <Login />
+      </AuthProvider>
+    ),
     errorElement: <PageNotFound />,
   },
   {
     path: "/dashboard",
-    element: <AuthProvider><ProtectedRoute><Dashboard /></ProtectedRoute></AuthProvider>,
+    element: (
+      <AuthProvider>
+        <ProtectedRoute>
+          <BaseRoute >
+          <Dashboard />
+          </BaseRoute>
+        </ProtectedRoute>
+      </AuthProvider>
+    ),
   },
   {
     path: "/creation-de-compte",
-    element: <AuthProvider><AccountCreation /></AuthProvider>,
+    element: (
+      <AuthProvider>
+        <AccountCreation />
+      </AuthProvider>
+    ),
   },
   {
     path: "/test",
-    element: <AuthProvider><TestPage /></AuthProvider>,
+    element: (
+      <AuthProvider>
+        <TestPage />
+      </AuthProvider>
+    ),
   },
 ]);
 
-
 function App() {
-
-  return (
-    
-      <RouterProvider router={router} />
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
