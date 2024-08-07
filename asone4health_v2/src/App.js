@@ -9,7 +9,6 @@ import TestPage from "./pages/testPage";
 import PageNotFound from "./pages/PageNotFound";
 import Dashboard from "./pages/Dashboard";
 import ProtectedRoute from "./contexts/ProtectedRoute";
-import BaseRoute from "./contexts/ProtectedRoute";
 import AuthProvider from "./contexts/AuthProvider";
 
 //TODO : done: *started the reactivity og the home page
@@ -35,9 +34,8 @@ const router = createBrowserRouter([
     element: (
       <AuthProvider>
         <ProtectedRoute>
-          <BaseRoute >
+
           <Dashboard />
-          </BaseRoute>
         </ProtectedRoute>
       </AuthProvider>
     ),
