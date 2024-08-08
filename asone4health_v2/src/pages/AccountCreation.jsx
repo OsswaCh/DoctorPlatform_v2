@@ -4,6 +4,7 @@ import CircleLogo from "../components/CircleLogo";
 import InputBox from "../components/Inputs/InputBox";
 import Toggle from "../components/Toggle";
 import Button from "../components/Button";
+import BackButton from "../components/buttons/BackButton";
 import { BASE_URL } from "../Config";
 
 //TODO: center the doc type dic like the input div
@@ -156,19 +157,21 @@ useEffect(() => {
   }
 
   return (
-    <div className="w-screen h-screen grid grid-cols-5 relative">
+    <div className="w-screen h-screen grid  lg:grid-cols-5 md:grid-cols-5 relative">
       {/* color area */}
-      <div className="col-span-1 bg-color-main "></div>
+      <div className="col-span-1 bg-color-main ">
+        <BackButton />
+      </div>
 
       {/* input area */}
       <div className="col-span-4 bg-white flex justify-center">
+          <form onSubmit={handleSubmit} className="lg:flex" >
         <div className="p-8 w-full max-w-md col-start-2">
           <h1 className="text-center font-bold text-3xl text-color-client-dark mb-16 mt-10">
             Création de compte
           </h1>
 
           {/* Input Boxes */}
-          <form onSubmit={handleSubmit} >
             <section className="flex flex-col w-full items-center relative ">
               <div className="mb-6 w-full flex flex-col items-center">
                 <h2 className="text-center mb-2">Nom</h2>
@@ -229,11 +232,10 @@ useEffect(() => {
                 <br />
               </div>
             </section>
-          </form>
         </div>
 
         {/* specialty */}
-        <div className=" col-span-4 md:col-start-3 md:col-span-2 bg-white flex flex-col items-center justify-center pt-5">
+        <div className=" col-span-4 md:col-start-3 md:col-span-2 bg-white flex flex-col items-center justify-center pt-5 min-w-72">
           <div className="min-w-[25vh] -mt-12">
             {specialties_list.map((specialty) => (
               <div
@@ -251,10 +253,11 @@ useEffect(() => {
               </div>
             ))}
           </div>
-          <div className="relative -bottom-40 -right-16 ">
+          <div className="relative lg:-bottom-40 lg:-right-16 mb-16 mt-5 ">
             <Button color="color-main" text="Continuer" type="submit" />
           </div>
         </div>
+          </form>
       </div>
 
       {/* circle logo */}
