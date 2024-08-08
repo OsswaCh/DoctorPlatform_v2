@@ -1,4 +1,5 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
+import {BASE_URL} from "../Config";
 
 const AuthContext = createContext();
 
@@ -24,7 +25,7 @@ const AuthProvider = ({ children }) => {
   const checkEmailExistence = async (email) => {
     try {
       const emailCheckResponse = await fetch(
-        "https://api.asone4health.fr/check-email",
+       `${BASE_URL}/check-email`,
         {
           method: "POST",
           headers: {
@@ -54,7 +55,7 @@ const AuthProvider = ({ children }) => {
         throw new Error("Veuillez saisir le mot de passe");
       }
 
-      const response = await fetch("https://api.asone4health.fr/doctor/login", {
+      const response = await fetch(`${BASE_URL}/doctor/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

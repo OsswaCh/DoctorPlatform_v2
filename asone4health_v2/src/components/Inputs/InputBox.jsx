@@ -1,6 +1,6 @@
 import React from 'react';
 
-function InputBox({id, type, height="h-9", width="w-64", onChange, value, name, onBlur}) {
+function InputBox({id, type, height="h-9", width="w-64", onChange, value, name, required, pattern=""}) {
   return (
     <div>
       <input 
@@ -11,7 +11,7 @@ function InputBox({id, type, height="h-9", width="w-64", onChange, value, name, 
         onChange={onChange}
         value={value}
         name={name}
-        onBlur={onBlur}
+        required={required}
       />
     </div>
   );
