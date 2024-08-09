@@ -88,7 +88,6 @@ function Login() {
               </button>
             </div>
 
-            {/*TODO: make this button functional again*/}
             <div className="flex flex-col w-full items-center justify-center mt-4  min-w-[50vw]">
               <h3 className="mb-5">Nouveau chez AsOne4Health ?</h3>
               <button className="w-80 px-4 py-2 text-color-text border-solid border border-color-text rounded-xl hover:bg-color-input-box hover:transition-all duration-100 hover:translate-x-1 hover:translate-y-1 hover:shadow-md  "

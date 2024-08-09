@@ -40,7 +40,6 @@ function AccountCreation() {
     }, {})
   );
 
-
   const [docJSON, setDocJSON] = useState({
     recourceType: "Practitioner",
     identifier: [
@@ -50,7 +49,7 @@ function AccountCreation() {
         type: {
           text: "Doctor ID",
         },
-      }
+      },
     ],
     name: [
       {
@@ -74,27 +73,25 @@ function AccountCreation() {
     meta: {
       lastUpdated: null,
     },
-  })
+  });
 
+  useEffect(() => {
+    setDocJSON((prevDocJSON) => ({
+      ...prevDocJSON,
+      identifier: [...prevDocJSON.identifier, { value: input.doctorId }],
+      name: [{ family: input.nom, given: [input.prenom] }],
+      telecom: [
+        { system: "phone", value: input.numTelephone },
+        { system: "email", value: input.addEmail },
+      ],
+      specialty: doctorSpecialties,
+      email: input.addEmail,
+    }));
+  }, [input, doctorSpecialties]);
 
-useEffect(() => {
-  setDocJSON(prevDocJSON => ({
-    ...prevDocJSON,
-    identifier: [...prevDocJSON.identifier, {value: input.doctorId}],
-    name: [{family: input.nom, given: [input.prenom]}],
-    telecom: [
-      {system: "phone", value: input.numTelephone},
-      {system: "email", value: input.addEmail},
-    ],
-    specialty: doctorSpecialties,
-    email: input.addEmail,
-  }))
-}, [input, doctorSpecialties])
-
-useEffect(() => {
-  console.log(docJSON)
-}, [docJSON])
-
+  useEffect(() => {
+    console.log(docJSON);
+  }, [docJSON]);
 
   /////functions////
 
@@ -131,47 +128,43 @@ useEffect(() => {
     }));
   };
 
-
   //posting the new doctor
   async function postDoctor() {
     const response = await fetch(`${BASE_URL}/automatic_register_doctor`, {
       method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(docJSON),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(docJSON),
     });
 
-     if (!response.ok) {
-        throw new Error(
-          `Erreur lors de l'ajout du médecin: ${response.status}`
-        );
-      }
-      console.log("Doctor added successfully");
+    if (!response.ok) {
+      throw new Error(`Erreur lors de l'ajout du médecin: ${response.status}`);
+    }
+    console.log("Doctor added successfully");
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
     postDoctor();
-  }
+  };
 
   return (
-    <div className="w-screen h-screen grid  lg:grid-cols-5 md:grid-cols-5 relative">
+    <div className="w-screen h-screen grid lg:grid-cols-5 relative">
       {/* color area */}
-      <div className="col-span-1 bg-color-main ">
+      <div className="col-span-full h-[35vw] min-h-[150px] lg:h-full lg:col-span-1 md:col-span-full  bg-color-main ">
         <BackButton />
       </div>
-
       {/* input area */}
-      <div className="col-span-4 bg-white flex justify-center">
-          <form onSubmit={handleSubmit} className="lg:flex" >
-        <div className="p-8 w-full max-w-md col-start-2">
-          <h1 className="text-center font-bold text-3xl text-color-client-dark mb-16 mt-10">
-            Création de compte
-          </h1>
+      <div className=" lg:col-span-4 lg:ml-16 bg-white flex justify-center">
+        <form onSubmit={handleSubmit} className="lg:flex mt-10">
+          <div className="p-8 w-full max-w-md col-start-2">
+            <h1 className="text-center font-bold text-3xl text-color-client-dark mb-16 mt-[17vw] lg:mt-0">
+              Création de compte
+            </h1>
 
-          {/* Input Boxes */}
+            {/* Input Boxes */}
             <section className="flex flex-col w-full items-center relative ">
               <div className="mb-6 w-full flex flex-col items-center">
                 <h2 className="text-center mb-2">Nom</h2>
@@ -190,7 +183,9 @@ useEffect(() => {
                   required
                 />
 
-                <h2 className="text-center mb-2 mt-7 max-w-48">Numéro d'inscription à l'ordre des médecins</h2>
+                <h2 className="text-center mb-2 mt-7 max-w-48">
+                  Numéro d'inscription à l'ordre des médecins
+                </h2>
                 <InputBox
                   type="number"
                   id="doctorId"
@@ -213,17 +208,17 @@ useEffect(() => {
                   pattern="^[\w-.]+@([\w-]+\.)+[a-zA-Z]{2,}$"
                 />
 
-{/*                <h2 className="text-center mb-2 mt-7">Mot de Passe</h2>*/}
-{/*                <InputBox type="password" id="MDP" onChange={handleInput} />*/}
+                {/*                <h2 className="text-center mb-2 mt-7">Mot de Passe</h2>*/}
+                {/*                <InputBox type="password" id="MDP" onChange={handleInput} />*/}
 
-{/*                <h2 className="text-center mb-2 mt-7">*/}
-{/*                  Confirmation du mot de passe*/}
-{/*                </h2>*/}
-{/*                <InputBox*/}
-{/*                  type="password"*/}
-{/*                  id="confirmMDP"*/}
-{/*                  onChange={handleInput}*/}
-{/*                />*/}
+                {/*                <h2 className="text-center mb-2 mt-7">*/}
+                {/*                  Confirmation du mot de passe*/}
+                {/*                </h2>*/}
+                {/*                <InputBox*/}
+                {/*                  type="password"*/}
+                {/*                  id="confirmMDP"*/}
+                {/*                  onChange={handleInput}*/}
+                {/*                />*/}
 
                 <br />
                 <button className="w-64 h-9 text-text-color-text border-solid border border-color-text rounded-3xl mt-10 font-bold text-color-text">
@@ -232,36 +227,36 @@ useEffect(() => {
                 <br />
               </div>
             </section>
-        </div>
+          </div>
 
-        {/* specialty */}
-        <div className=" col-span-4 md:col-start-3 md:col-span-2 bg-white flex flex-col items-center justify-center pt-5 min-w-72">
-          <div className="min-w-[25vh] -mt-12">
-            {specialties_list.map((specialty) => (
-              <div
-                key={specialty}
-                className="flex flex-row justify-center mb-[1.1rem]"
-              >
-                <h2 className="text-center">{specialty}</h2>
-                <div className="ml-auto">
-                  <Toggle
-                    id={specialty}
-                    checked={toggleStates[specialty]}
-                    onChange={handleToggleChange(specialty)}
-                  />
+          {/* specialty */}
+          <div className=" col-span-4 md:col-start-3 md:col-span-2 bg-white flex flex-col items-center justify-center pt-5 min-w-72">
+            <div className="min-w-[25vh] -mt-12">
+              {specialties_list.map((specialty) => (
+                <div
+                  key={specialty}
+                  className="flex flex-row justify-center mb-[1.1rem]"
+                >
+                  <h2 className="text-center">{specialty}</h2>
+                  <div className="ml-auto">
+                    <Toggle
+                      id={specialty}
+                      checked={toggleStates[specialty]}
+                      onChange={handleToggleChange(specialty)}
+                    />
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+            <div className="relative lg:-bottom-40 lg:-right-16 mb-16 mt-5 ">
+              <Button color="color-main" text="Continuer" type="submit" />
+            </div>
           </div>
-          <div className="relative lg:-bottom-40 lg:-right-16 mb-16 mt-5 ">
-            <Button color="color-main" text="Continuer" type="submit" />
-          </div>
-        </div>
-          </form>
+        </form>
       </div>
 
       {/* circle logo */}
-      <div className="absolute max-w-[40vw] top-[15vh] left-1/5 flex items-center justify-center">
+      <div className="absolute max-w-[40vw] top-[17.5vw]  left-[53vw] -translate-x-1/2 lg:left-0 lg:top-[15vh] lg:-translate-x-0 ">
         <CircleLogo size="medium-large" />
       </div>
     </div>
