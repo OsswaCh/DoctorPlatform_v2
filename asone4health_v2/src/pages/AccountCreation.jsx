@@ -156,6 +156,10 @@ function AccountCreation() {
       <div className="col-span-full h-[35vw] min-h-[150px] lg:h-full lg:col-span-1 md:col-span-full  bg-color-main ">
         <BackButton />
       </div>
+      <div className="absolute max-w-[35vw] top-[17.5vw]  left-[50vw] -translate-x-1/2 lg:left-0 lg:top-[15vh] lg:-translate-x-0 ">
+
+        <CircleLogo size="medium-large" />
+      </div>
       {/* input area */}
       <div className=" lg:col-span-4 lg:ml-16 bg-white flex justify-center">
         <form onSubmit={handleSubmit} className="lg:flex mt-10">
@@ -256,9 +260,6 @@ function AccountCreation() {
       </div>
 
       {/* circle logo */}
-      <div className="absolute max-w-[40vw] top-[17.5vw]  left-[53vw] -translate-x-1/2 lg:left-0 lg:top-[15vh] lg:-translate-x-0 ">
-        <CircleLogo size="medium-large" />
-      </div>
     </div>
   );
 }
