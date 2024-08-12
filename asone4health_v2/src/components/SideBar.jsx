@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useAuth } from "../contexts/AuthProvider";
 
 import Logo2 from "../../src/assests/images/Logo_arriere_transparent.png";
@@ -8,13 +8,46 @@ import { Navigate } from "react-router-dom";
 import ProfileSVG from "./SVGs/ProfileSVG";
 import LogOutSVG from "./SVGs/LogOutSVG";
 import SearchSVG from "./SVGs/SearchSVG";
+import { BASE_URL } from "../Config";
 
 //TODO: link to the database instead of placeholders
 //TODO: bigger side bar fit the toggle
 //TODO: make the sidebar fit the entire screen no matter how long it is
 //TODO: make the sidebar FIXED  and the main content scrollable
 
+//fetching the specialties from the end point
+
 function SideBar() {
+
+  //extracting the specialties from the user data
+  const extractSpecialties = (doctorData) => {
+  if (!doctorData || !doctorData.speciality || !Array.isArray(doctorData.speciality)) {
+    return [];
+  }
+
+  const specialties_list = doctorData.speciality.flatMap(specialty => 
+    specialty.coding?.map(coding => coding.display) || []
+  );
+
+  return [...new Set(specialties_list)]; // Remove duplicates
+};
+
+const doc = useAuth();
+console.log("doc", doc);
+
+const specialties = doc.user.specialties;
+console.log("specialties", specialties);
+
+const specialties_list = extractSpecialties({ speciality: specialties });
+console.log("specialties_list", specialties_list);
+
+  const [toggleStates, setToggleStates] = useState(
+    specialties_list.reduce((acc, specialty) => {
+      acc[specialty] = false;
+      return acc;
+    }, {})
+  );
+
   return (
     <div className=" w-[17rem]   border-r-4 border-color-main shadow-[0.5px_0px_25px_0px] shadow-color-main">
       {/* section 1 */}
@@ -47,24 +80,12 @@ function SideBar() {
         </h1>
 
         <div className="mt-3">
-          {[
-            "Infectiogue",
-            "Oncologue",
-            "Traumatologue",
-            "MICI",
-            "Médecine Générale",
-            "Médecine de sport",
-            "Diététicien(ne)",
-            "Diabétologue",
-            "Endocrinologue",
-            "Cardiologue",
-            "Néphrologue",
-          ].map((active_specialty) => (
+          {specialties_list.map((active_specialty) => (
             <div
               key={active_specialty}
-              className="flex flex-row justify-center mb-2"
+              className="flex mb-2"
             >
-              <h2 className="text-center">{active_specialty}</h2>
+              <h2 className="">{active_specialty}</h2>
               <div className="ml-auto">
                 <Toggle id={active_specialty} />
               </div>

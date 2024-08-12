@@ -61,12 +61,12 @@ function Login() {
           <form onSubmit={handleSubmitEvent}>
             <section className="flex flex-col w-full items-center relative">
               <div className="mb-6 w-full flex flex-col items-center ">
-                <h2 className="text-center mb-2">Adresse Email</h2>
+                <h2 className="text-center mb-2 min-w-32">Adresse Email</h2>
                 <InputBox type="email" name="email" onChange={handleInput} />
               </div>
 
               <div className="mb-6 w-full flex flex-col items-center">
-                <h2 className="text-center mb-2">Mot de Passe</h2>
+                <h2 className="text-center mb-2 min-w-32">Mot de Passe</h2>
                 <InputBox
                   type="password"
                   name="password"

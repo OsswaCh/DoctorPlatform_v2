@@ -2,20 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Switch } from "@material-tailwind/react";
 
 function Toggle({ checked, onChange, id }) {
-// const [checkedState, setCheckedState] = useState(initialChecked);
-//
-//  useEffect(() => {
-//    console.log('Current checked state:', checkedState);
-//  }, [checkedState]);
-//
-//  const handleChange = (event) => {
-//    const newCheckedState = event.target.checked;
-//    setCheckedState(newCheckedState);
-//    if (action) {
-//      action(newCheckedState);
-//    }
-//  };
-//
+
   return (
     <Switch
       id={id}

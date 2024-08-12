@@ -18,6 +18,7 @@ const AuthProvider = ({ children }) => {
         email: sessionStorage.getItem("mail"),
         nom: sessionStorage.getItem("nom"),
         prenom: sessionStorage.getItem("prenom"),
+        specialties: JSON.parse(sessionStorage.getItem("specialites")),
       });
     }
   }, [token]);
