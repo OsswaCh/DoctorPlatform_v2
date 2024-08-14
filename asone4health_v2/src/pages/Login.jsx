@@ -14,11 +14,14 @@ function Login() {
     email: "",
     password: "",
   });
+
+
   const [error, setError] = useState("");
   const auth = useAuth();
   const navigate = useNavigate();
   const handleSubmitEvent = async (e) => {
     e.preventDefault();
+
     const result = await auth.loginAction({
       email: input.email,
       password: input.password,
@@ -31,6 +34,7 @@ function Login() {
   };
   const handleInput = (e) => {
     const { name, value } = e.target;
+    
     setInput((prev) => ({
       ...prev,
       [name]: value,

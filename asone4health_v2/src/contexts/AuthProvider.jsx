@@ -1,5 +1,5 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
-import {BASE_URL} from "../Config";
+import { BASE_URL } from "../Config";
 
 const AuthContext = createContext();
 
@@ -25,17 +25,14 @@ const AuthProvider = ({ children }) => {
 
   const checkEmailExistence = async (email) => {
     try {
-      const emailCheckResponse = await fetch(
-       `${BASE_URL}/check-email`,
-        {
-          method: "POST",
-          headers: {
-            accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ email: email }),
-        }
-      );
+      const emailCheckResponse = await fetch(`${BASE_URL}/check-email`, {
+        method: "POST",
+        headers: {
+          accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: email }),
+      });
       const emailCheckResult = await emailCheckResponse.json();
       console.log("Email check result:", emailCheckResult);
       return emailCheckResult.detail === "Email already exists";
@@ -46,6 +43,7 @@ const AuthProvider = ({ children }) => {
   };
 
   const loginAction = async (data) => {
+
     try {
       const emailExists = await checkEmailExistence(data.email);
       if (!emailExists) {
@@ -61,11 +59,18 @@ const AuthProvider = ({ children }) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data),
+
+        body: JSON.stringify({
+          email: data.email,
+          password: data.password,
+        }),
       });
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
 
       const responseData = await response.json();
-      console.log(responseData);
+      console.log("vanilla response" ,responseData);
 
       if (responseData.status === "ok") {
         // Store data in sessionStorage
@@ -116,18 +121,21 @@ const AuthProvider = ({ children }) => {
     }
   };
 
-    const updateUserInfo = (doctorInfo) => {
-    setUser(prevUser => ({
+  const updateUserInfo = (doctorInfo) => {
+    setUser((prevUser) => ({
       ...prevUser,
-      ...doctorInfo
+      ...doctorInfo,
     }));
 
     // Update session storage
     Object.entries(doctorInfo).forEach(([key, value]) => {
-      sessionStorage.setItem(key, typeof value === 'object' ? JSON.stringify(value) : value);
+      sessionStorage.setItem(
+        key,
+        typeof value === "object" ? JSON.stringify(value) : value
+      );
     });
   };
-  
+
   const logOut = () => {
     setUser(null);
     setToken("");

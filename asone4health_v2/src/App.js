@@ -16,6 +16,7 @@ import AuthProvider from "./contexts/AuthProvider";
 //TODO: change the paragraph font to ROBOTO
 //TODO: put the icons in a seperate file and call them?
 //TODO: fix the protected routes
+//TODO: cache the session storage so it doesn't dissapear on reload
 
 // Define the routes
 

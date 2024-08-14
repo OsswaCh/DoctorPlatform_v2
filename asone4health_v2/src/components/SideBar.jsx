@@ -1,25 +1,70 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useAuth } from "../contexts/AuthProvider";
 
 import Logo2 from "../../src/assests/images/Logo_arriere_transparent.png";
 import Toggle from "./Toggle";
 import Button from "./Button";
-import { Navigate } from "react-router-dom";
 import ProfileSVG from "./SVGs/ProfileSVG";
 import LogOutSVG from "./SVGs/LogOutSVG";
 import SearchSVG from "./SVGs/SearchSVG";
 import { BASE_URL } from "../Config";
+import ColleagueExtraction from "../APIs/Colleagues";
+
 
 //TODO: link to the database instead of placeholders
 //TODO: bigger side bar fit the toggle
 //TODO: make the sidebar fit the entire screen no matter how long it is
 //TODO: make the sidebar FIXED  and the main content scrollable
+//TODO : search bar ??
 
-//fetching the specialties from the end point
 
 function SideBar() {
 
-  //extracting the specialties from the user data
+const doc = useAuth();
+console.log("doc", doc);
+  
+const doc_id =  doc.user.id; ;
+const specialties = doc.user.specialties;
+
+console.log("doc_id", doc_id);
+
+
+
+
+
+//extracting patients
+//TODO: fix this i'm tired 
+async function getPatients(id = doc_id) {
+  const all_patients = await fetch(`${BASE_URL}/doctor/activated_patients/${id}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }).then((response) => response.json());
+  console.log(" type of all_patients", typeof all_patients);
+  return all_patients;
+}
+//getPatients().then((data) => console.log("data", data));
+const all_patients = getPatients();
+
+//name list of patients
+
+const extractAllPatients = (patients) => {
+
+  
+  const patients_list =Object.keys(patients).map(patient => {
+   Object.keys(patient).map(patient => patient.name?.map(name => name.given.join(" ") + " " + name.family) || null);
+  });
+  
+  return [...new Set(patients_list)];
+};
+const patients_list = extractAllPatients({ all_patients  });
+console.log("patients_list", patients_list);
+
+
+
+
+//extracting the specialties from the user data
   const extractSpecialties = (doctorData) => {
   if (!doctorData || !doctorData.speciality || !Array.isArray(doctorData.speciality)) {
     return [];
@@ -31,17 +76,41 @@ function SideBar() {
 
   return [...new Set(specialties_list)]; // Remove duplicates
 };
-
-const doc = useAuth();
-console.log("doc", doc);
-
-const specialties = doc.user.specialties;
-console.log("specialties", specialties);
-
 const specialties_list = extractSpecialties({ speciality: specialties });
-console.log("specialties_list", specialties_list);
 
-  const [toggleStates, setToggleStates] = useState(
+
+
+//exraction of the collegues
+
+const [colleagues, setColleagues] = useState([]);
+
+useEffect(() => {
+  const fetchColleagues = async () => {
+    try {    
+      const result = await ColleagueExtraction(doc_id);
+      setColleagues(result);
+    }
+    catch (error) {
+      console.error("Error fetching colleagues:", error);
+    }
+  };
+  fetchColleagues();
+}, []);
+
+//
+//useEffect(() => {
+//  console.log("colleagues", colleagues);
+//}, [colleagues]);
+//
+
+
+
+
+
+
+
+//activation of the toggle
+const [toggleStates, setToggleStates] = useState(
     specialties_list.reduce((acc, specialty) => {
       acc[specialty] = false;
       return acc;
@@ -103,7 +172,7 @@ console.log("specialties_list", specialties_list);
 
         {/* TODO : make the button  text coloe dynamic */}
         <div className="mt-3">
-          {["Infectiogue", "Oncologue", "Traumatologue", "MICI"].map(
+          {patients_list.map(
             (active_patient) => (
               <div
                 key={active_patient}
@@ -137,7 +206,7 @@ console.log("specialties_list", specialties_list);
         <h1 className="text-2xl  text-color-client-dark font-bold">Médecins</h1>
 
         <div className="mt-3">
-          {["Infectiogue", "Oncologue", "Traumatologue", "MICI"].map(
+          {colleagues.map(
             (active_doctor) => (
               <div
                 key={active_doctor}
