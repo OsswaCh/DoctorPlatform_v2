@@ -10,6 +10,7 @@ import PageNotFound from "./pages/PageNotFound";
 import Dashboard from "./pages/Dashboard";
 import ProtectedRoute from "./contexts/ProtectedRoute";
 import AuthProvider from "./contexts/AuthProvider";
+import { PatientProvider } from "./contexts/PatientContext";
 
 //TODO : done: *started the reactivity og the home page
 //TODO: make each type of button its own component depending on the functionality
@@ -17,6 +18,7 @@ import AuthProvider from "./contexts/AuthProvider";
 //TODO: put the icons in a seperate file and call them?
 //TODO: fix the protected routes
 //TODO: cache the session storage so it doesn't dissapear on reload
+//TODO: switch to dynamic imports!!!!
 
 // Define the routes
 
@@ -35,8 +37,9 @@ const router = createBrowserRouter([
     element: (
       <AuthProvider>
         <ProtectedRoute>
-
+          <PatientProvider>
           <Dashboard />
+          </PatientProvider>
         </ProtectedRoute>
       </AuthProvider>
     ),

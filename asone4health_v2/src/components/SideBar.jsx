@@ -15,8 +15,9 @@ import { setActive } from "@material-tailwind/react/components/Tabs/TabsContext"
 //TODO: link to the database instead of placeholders
 //TODO: bigger side bar fit the toggle
 //TODO: make the sidebar fit the entire screen no matter how long it is
-//TODO: make the sidebar FIXED  and the main content scrollable
+//TODO: make the sidebar FIXED  and the main content scrollable (failed)
 //TODO : search bar ??
+//TODO: SPLIT THIS FILE IT S TOO LONG
 
 function SideBar() {
   const doc = useAuth();

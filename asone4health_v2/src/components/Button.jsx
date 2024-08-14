@@ -22,8 +22,6 @@ function Button({
     "color-red": "bg-color-red",
   };
 
-//const [isClicked, setIsClicked] = useState(false)
-
 
 const button_color = isActive ? clickedColor : colorVariants[color];
 

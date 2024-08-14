@@ -1,11 +1,22 @@
-import React, {createContext} from 'react'
+import React, {createContext, useContext, useState} from 'react'
 
 const PatientContext = createContext()
 
-function PatientContext() {
-  return (
-    <div>PatientContext</div>
-  )
-}
+export const PatientProvider = ({children}) => {
 
-export default PatientContext
+    const [selectedPatient, setSelectedPatient] = useState(null);
+    
+
+
+
+    return (
+        <PatientContext.Provider value={{selectedPatient, setSelectedPatient}}>
+            {children}
+        </PatientContext.Provider>
+    )
+
+};
+
+export const usePatient = () => {
+    return useContext(PatientContext);
+};
