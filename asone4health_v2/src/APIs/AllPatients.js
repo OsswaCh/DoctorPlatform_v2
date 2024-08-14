@@ -8,7 +8,7 @@ const GetPatientsNames = (data) => {
     return [`${given} ${family}`.trim(), patient._id];
   });
 
-  return names; // Remove Set to keep all patients, even if names are duplicate
+  return names; 
 };
 
 const GetPatients = async (doc_id) => {
