@@ -1,10 +1,12 @@
 import { BASE_URL } from "../Config";
-//import { useAuth } from "../contexts/AuthProvider";
 
+// extracts the colleagues who have accepted the invitation
 const GetAcceptedColleagues = (all_doctors) => {
   return all_doctors.filter((doctor) => doctor.colleague.status === "accepted");
 };
 
+
+//extracts the names of accepted collgues 
 const GetColleaguesNames = (accepted_colleagues) => {
   const colleagues_names = accepted_colleagues.map((colleague) => {
     return colleague.colleague.lastName;
@@ -12,6 +14,8 @@ const GetColleaguesNames = (accepted_colleagues) => {
   return [...new Set(colleagues_names)];
 };
 
+
+//main function 
 const ColleaguesExtraction = async (doc_id) => {
   try {
     const response = await fetch(
