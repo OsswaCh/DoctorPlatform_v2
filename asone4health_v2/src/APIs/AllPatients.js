@@ -1,54 +1,36 @@
-import {BASE_URL} from "../Config";
+import { BASE_URL } from "../Config";
 
 const GetPatientsNames = (data) => {
-  const names = data.map((patientArray) => {
-    const patientData = patientArray[0]; 
-    const family = patientData.family;
-    const given = patientData.given ? patientData.given.join(' ') : '';
-    return `${given} ${family}`.trim();
+  const names = data.map((patient) => {
+    const name = patient.name[0];
+    const family = name.family;
+    const given = name.given ? name.given.join(' ') : '';
+    return [`${given} ${family}`.trim(), patient._id];
   });
 
-  return [...new Set(names)];
+  return names; // Remove Set to keep all patients, even if names are duplicate
 };
-
-
-
-const GetPatientsNamesArray = (data) =>{
- 
-    const patients_names = data.map((patient) => {
-        return patient.name;
-    });
-
-    return [...new Set(patients_names)];
-
-};
-
 
 const GetPatients = async (doc_id) => {
+  try {
+    const response = await fetch(`${BASE_URL}/doctor/activated_patients/${doc_id}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
 
-    try {
-
-        const response = await fetch(`${BASE_URL}/doctor/activated_patients/${doc_id}`, {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          })
-
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);  
-          }
-
-          const data = await response.json();
-          const names_array =  GetPatientsNamesArray(data);
-          //return names_array;
-          return GetPatientsNames(names_array);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);  
     }
 
-    catch(error){
-        console.error("Error fetching patients:", error);
-        return [];
-    }
-}
+    const data = await response.json();
+    console.log(data);
+    return GetPatientsNames(data);
+  } catch(error) {
+    console.error("Error fetching patients:", error);
+    return [];
+  }
+};
 
 export default GetPatients;

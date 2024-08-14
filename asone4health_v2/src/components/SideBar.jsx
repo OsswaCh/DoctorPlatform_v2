@@ -28,6 +28,7 @@ function SideBar() {
 
   //console.log("doc_id", doc_id);
 
+
   //extracting patients
   const [patients_list, setPatientsList] = useState([]);
   useEffect(() => {
@@ -160,9 +161,9 @@ function SideBar() {
                   textColor="text-color-white"
                   height="h-6"
                   color="color-client"
-                  text={active_patient}
+                  text={active_patient[0]}
                   width="w-[14rem]"
-                  id={active_patient}
+                  id={active_patient[1]}
                   clickedColor={"bg-color-client-dark"} 
                   isActive= {activePatient === active_patient}
                   onClick={() => handlePatientClick(active_patient)}
