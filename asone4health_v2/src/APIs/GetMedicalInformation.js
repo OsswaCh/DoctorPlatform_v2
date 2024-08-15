@@ -1,7 +1,7 @@
 import { BASE_URL } from "../Config";
 
 const ExtractMedicalInformation = (data) => {
-    const allergies = data.content.llergies;
+    const allergies = data.content.allergies.map((allergy) => allergy.substance);
     const antecedents = data.content.antecedents;
     const medicaments =data.content.medicaments;
     const interventions = data.content.interventions;
@@ -26,9 +26,9 @@ const GetMedicalInformation = async (patient_id) => {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const data = await response.json();
-//return data;
+return data;
 //displaying the data
-    return ExtractMedicalInformation(data);
+    //return ExtractMedicalInformation(data);
 
   } catch (error) {
     console.error("Error fetching collegues:", error);

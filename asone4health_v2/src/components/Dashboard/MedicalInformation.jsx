@@ -46,45 +46,44 @@ function MedicalInformation() {
   const [newContent, setNewContent] = useState(
     "Select a patient to add medical information"
   );
+    const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  console.log(patient_id)
-
+  console.log(patient_id);
 useEffect(() => {
+    async function fetchMedicalInformation() {
+      if (!patient_id) {
+        setContent(["No patient selected"]);
+        return;
+      }
 
-const fetchMedicalInformation = async () => {
+      setIsLoading(true);
+      setError(null);
 
-try {
-  const result = await GetMedicalInformation(patient_id);
-  console.log("Medical information result:", result);
-  setContent(result);
-}
-catch (error) { 
-  console.error("Error fetching medical information:", error);
-}
-fetchMedicalInformation();
+      try {
+        const result = await GetMedicalInformation(patient_id);
+        console.log("Medical information result:", result);
+        setContent(result.length > 0 ? result : ["No medical information available"]);
+      } catch (error) {
+        console.error("Error fetching medical information:", error);
+        setError("Failed to fetch medical information");
+        setContent(["Error loading medical information"]);
+      } finally {
+        setIsLoading(false);
+      }
+    }
 
-};
+    fetchMedicalInformation();
+  }, [patient_id]);
 
-}, []);
-
-console.log("Medical information:", content);
+  console.log("Medical information:", content);
   const handleOpen = (value) => setOpen(open === value ? 0 : value);
   const toggleEdit = () => setIsEditing(!isEditing);
+
   const toggleAdd = () => {
     setIsAdding(!isAdding);
     setNewContent("");
   };
-
-
-
-
-
-
-
-
-
-
-
 
   const handleContentChange = (index, value) => {
     const updatedContent = [...content];
