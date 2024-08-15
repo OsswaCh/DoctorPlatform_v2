@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Accordion,
   AccordionHeader,
   AccordionBody,
 } from "@material-tailwind/react";
+import { usePatient } from "../../contexts/PatientContext";
+import GetMedicalInformation from "../../APIs/GetMedicalInformation";
 
-//make the add work once
+//TODO: make the add work once
 
 function Icon({ id, open }) {
   return (
@@ -29,22 +31,61 @@ function Icon({ id, open }) {
 }
 
 function MedicalInformation() {
-  
+  //getting the medical information
+
+  const { selectedPatient } = usePatient();
+  const patient_id = selectedPatient?.[1] ?? null;
+
+  // const patient_id = selectedPatient[1];
+  //console.log("selected patient id ", patient_id);
+
   const [open, setOpen] = useState(0);
   const [isEditing, setIsEditing] = useState(false);
   const [isAdding, setIsAdding] = useState(false);
-  const [content, setContent] = useState([
-    "This patient does not have any medical information yet."
-  ]);
-  const [newContent, setNewContent] = useState("");
+  const [content, setContent] = useState(["No medical information available"]);
+  const [newContent, setNewContent] = useState(
+    "Select a patient to add medical information"
+  );
 
+  console.log(patient_id)
+
+useEffect(() => {
+
+const fetchMedicalInformation = async () => {
+
+try {
+  const result = await GetMedicalInformation(patient_id);
+  console.log("Medical information result:", result);
+  setContent(result);
+}
+catch (error) { 
+  console.error("Error fetching medical information:", error);
+}
+fetchMedicalInformation();
+
+};
+
+}, []);
+
+console.log("Medical information:", content);
   const handleOpen = (value) => setOpen(open === value ? 0 : value);
   const toggleEdit = () => setIsEditing(!isEditing);
   const toggleAdd = () => {
     setIsAdding(!isAdding);
     setNewContent("");
   };
-  
+
+
+
+
+
+
+
+
+
+
+
+
   const handleContentChange = (index, value) => {
     const updatedContent = [...content];
     updatedContent[index] = value;
@@ -82,7 +123,7 @@ function MedicalInformation() {
               )}
             </div>
           ))}
-          
+
           {isAdding && (
             <div className="mt-4">
               <textarea
@@ -107,7 +148,7 @@ function MedicalInformation() {
               </div>
             </div>
           )}
-          
+
           <div className="mt-4 flex justify-evenly space-x-2">
             <button
               onClick={toggleEdit}

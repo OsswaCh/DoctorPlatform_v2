@@ -25,7 +25,7 @@ const GetPatients = async (doc_id) => {
     }
 
     const data = await response.json();
-    console.log(data);
+    //console.log(data);
     return GetPatientsNames(data);
   } catch(error) {
     console.error("Error fetching patients:", error);

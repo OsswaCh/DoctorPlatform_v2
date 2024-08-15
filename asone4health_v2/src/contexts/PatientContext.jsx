@@ -5,9 +5,6 @@ const PatientContext = createContext()
 export const PatientProvider = ({children}) => {
 
     const [selectedPatient, setSelectedPatient] = useState(null);
-    
-
-
 
     return (
         <PatientContext.Provider value={{selectedPatient, setSelectedPatient}}>

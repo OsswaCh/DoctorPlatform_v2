@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useAuth } from "../contexts/AuthProvider";
+import { usePatient } from "../contexts/PatientContext";
 
 import Logo2 from "../../src/assests/images/Logo_arriere_transparent.png";
 import Toggle from "./Toggle";
@@ -11,6 +12,7 @@ import { BASE_URL } from "../Config";
 import ColleagueExtraction from "../APIs/Colleagues";
 import GetPatients from "../APIs/AllPatients";
 import { setActive } from "@material-tailwind/react/components/Tabs/TabsContext";
+import { select } from "@material-tailwind/react";
 
 //TODO: link to the database instead of placeholders
 //TODO: bigger side bar fit the toggle
@@ -18,6 +20,7 @@ import { setActive } from "@material-tailwind/react/components/Tabs/TabsContext"
 //TODO: make the sidebar FIXED  and the main content scrollable (failed)
 //TODO : search bar ??
 //TODO: SPLIT THIS FILE IT S TOO LONG
+//TODO: do the toggles
 
 function SideBar() {
   const doc = useAuth();
@@ -85,6 +88,12 @@ function SideBar() {
   const handlePatientClick = (patient) => {
     setActivePatient(patient);
   };
+
+  //setting the patient context
+  const { setSelectedPatient } = usePatient();
+  useEffect(() => {
+    setSelectedPatient(activePatient);
+  }, [activePatient]);
 
   //only one doctor at a time
   const [activeDoctor, setActiveDoctor] = useState(null);
